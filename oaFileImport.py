@@ -12,14 +12,14 @@ class oaFileClass:
         self.oaTemplate = pd.read_csv("template/OATemplate.csv", header=0)
 
     def _writeHeader(self, _claim, _diagCodeList):
-        self.oaTemplate.at[self.rowIndex, "InsurancePlanName"] = _claim[0]["INSURANCE_PLAN_NAME"]
-        self.oaTemplate.at[self.rowIndex, "InsurancePayerID"] = " "
-        self.oaTemplate.at[self.rowIndex, "InsuranceStreetAddr"] = _claim[0]["INSURANCE_STREET_ADDR"]
-        self.oaTemplate.at[self.rowIndex, "InsuranceCity"] = _claim[0]["INSURANCE_CITY"]
-        self.oaTemplate.at[self.rowIndex, "InsuranceState"] = _claim[0]["INSURANCE_STATE"]
-        self.oaTemplate.at[self.rowIndex, "InsuranceZip"] = _claim[0]["INSURANCE_ZIP"]
-        self.oaTemplate.at[self.rowIndex, "InsuranceCityStateZip"] = str(_claim[0]["INSURANCE_CITY"]) + " " + str(_claim[0]["INSURANCE_STATE"]) + " " + str(_claim[0]["INSURANCE_ZIP"])
-        self.oaTemplate.at[self.rowIndex, "PlanGroupHealthPlan"] = "1"
+        self.oaTemplate.at[self.rowIndex, "InsurancePlanName"] = "Medicare California (South)"
+        self.oaTemplate.at[self.rowIndex, "InsurancePayerID"] = "MR002"
+        #self.oaTemplate.at[self.rowIndex, "InsuranceStreetAddr"] = "P.0. Box 6775"
+        #self.oaTemplate.at[self.rowIndex, "InsuranceCity"] = "Fargo"
+        #self.oaTemplate.at[self.rowIndex, "InsuranceState"] = "ND"
+        #self.oaTemplate.at[self.rowIndex, "InsuranceZip"] = "58108-6775"
+        #self.oaTemplate.at[self.rowIndex, "InsuranceCityStateZip"] = "Fargo ND 58108-6775"
+        self.oaTemplate.at[self.rowIndex, "PlanMedicare"] = "1"
         self.oaTemplate.at[self.rowIndex, "PatientID"] = _claim[0]["PATIENT_ID"]
         self.oaTemplate.at[self.rowIndex, "PatientLast"] = _claim[0]["PATIENT_LAST"]
         self.oaTemplate.at[self.rowIndex, "InsuredLast"] = _claim[0]["PATIENT_LAST"]
@@ -32,7 +32,7 @@ class oaFileClass:
         self.oaTemplate.at[self.rowIndex, "PatientCity"] = _claim[0]["PATIENT_CITY"]
         self.oaTemplate.at[self.rowIndex, "PatientState"] = _claim[0]["PATIENT_STATE"]
         self.oaTemplate.at[self.rowIndex, "PatientZip"] = _claim[0]["PATIENT_ZIP"]
-        self.oaTemplate.at[self.rowIndex, "PatientPhone"] = _claim[0]["PATIENT_ZIP"]
+        self.oaTemplate.at[self.rowIndex, "PatientPhone"] = _claim[0]["PATIENT_PHONE"]
         self.oaTemplate.at[self.rowIndex, "PatientRelationSELF"] = 1
         self.oaTemplate.at[self.rowIndex, "PatientSignature"] = "Signature on file"
         self.oaTemplate.at[self.rowIndex, "PatientSignatureDate"] = _claim[0]["TO_DATE_SERVICE"]
